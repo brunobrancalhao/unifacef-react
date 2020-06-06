@@ -1,3 +1,5 @@
 ## Unifacef React TypeScript
+yarn install
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/08a8996e-2d68-4a0d-9196-c36257025f08/deploy-status)](https://app.netlify.com/sites/luindayk-unifacef-react-frontend/deploys)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3cb6390a-e8ff-4190-acbf-ab3d77a19d42/deploy-status)](https://app.netlify.com/sites/unifacef-react-bruno/deploys)
