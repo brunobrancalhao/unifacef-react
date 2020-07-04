@@ -1,9 +1,11 @@
 import * as React from "react";
 
+import { inject, observer } from "mobx-react";
+
+import Logo from "../logo";
 import { Menu } from "semantic-ui-react";
-import { endpoints } from "../../routes/endpoints";
 import NewRouterStore from '../../mobx/router.store';
-import { observer, inject } from "mobx-react";
+import { endpoints } from "../../routes/endpoints";
 
 interface Props {
   router?: NewRouterStore;
@@ -18,11 +20,19 @@ export default class MainMenu extends React.Component<Props> {
     return setHistory(url);
   };
 
+  logout = () => {
+    const { setHistory } = this.props.router!;
+    return setHistory('logout');
+  }
+
   render() {
     return(
       <>
       <div className="nav">
         <Menu color="blue" inverted={true} size="large" secondary={true} stackable={true}>
+          <Menu.Item>
+            <Logo />
+          </Menu.Item>
           {endpoints.filter(x => x.name).map((item, index) => (
             <Menu.Item
               key={index}
@@ -33,6 +43,11 @@ export default class MainMenu extends React.Component<Props> {
               {item.name}
             </Menu.Item>
           ))}
+          <Menu.Menu position='right'>
+            <Menu.Item onClick={this.logout}>
+              Sair
+            </Menu.Item>
+          </Menu.Menu>
         </Menu>
       </div>
       </>
