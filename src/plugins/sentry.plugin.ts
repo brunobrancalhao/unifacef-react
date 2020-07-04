@@ -1,5 +1,7 @@
 import { configureScope, init } from '@sentry/browser';
 
+import { configs } from '../configs';
+
 (() => {
   // Desativa o plugin em localhost
   if (window.location.hostname === 'localhost' ||
@@ -7,9 +9,9 @@ import { configureScope, init } from '@sentry/browser';
     return;
   }
 
-  const { REACT_APP_SENTRY_DSN } = process.env;
+  const { sentry } = configs;
 
-  init({dsn: REACT_APP_SENTRY_DSN });
+  init({dsn: sentry });
 
   configureScope(scope => {
   });
